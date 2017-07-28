@@ -1,0 +1,18 @@
+{
+  "name": "ld38",
+  "version": "1.0.0",
+  "description": "Ludum Dare 38 project repo, waiting for the theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ludumdare",
+    "game",
+    "webgame",
+    "html5",
+    "ld38"
+  ],
+  "author": "Glenn Fagertveit",
+  "license": "ISC"
+}
