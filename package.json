@@ -1,7 +1,7 @@
 {
-  "name": "ld38",
+  "name": "ld39",
   "version": "1.0.0",
-  "description": "Ludum Dare 38 project repo, waiting for the theme",
+  "description": "Ludum Dare 39 project repo, waiting for the theme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +11,11 @@
     "game",
     "webgame",
     "html5",
-    "ld38"
+    "ld39"
   ],
   "author": "Glenn Fagertveit",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "phaser-ce": "^2.8.3"
+  }
 }
