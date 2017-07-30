@@ -1,38 +1,63 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>hello phaser!</title>
-        <script src="/node_modules/phaser-ce/build/phaser.min.js"></script>
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wasteland Survivor</title>
+    <script src="/node_modules/phaser-ce/build/phaser.min.js"></script>
+    <script src="/src/boot.js"></script>
+    <script src="/src/preloader.js"></script>
+    <script src="/src/main.js"></script>
+    <script src="/src/prelevel.js"></script>
+    <script src="/src/level.js"></script>
+    <script src="/src/success.js"></script>
+    <script src="/src/gameover.js"></script>
+    <script src="/src/victory.js"></script>
+    <style>
+      body {
+        background-color: #732719;
+        margin: 10px;
+      }
 
-    <script type="text/javascript">
+      #gamecontainer {
+        width: 640px;
+        height: 480px;
+        position: relative;
+        margin: 10px auto;
+      }
+    </style>
 
-    window.onload = function() {
+  </head>
+  <body>
+    <div id="gamecontainer">
 
-        //  Note that this html file is set to pull down Phaser 2.5.0 from the JS Delivr CDN.
-        //  Although it will work fine with this tutorial, it's almost certainly not the most current version.
-        //  Be sure to replace it with an updated version before you start experimenting with adding your own code.
+    </div>
+  <script>
+  window.onload = function() {
 
-        var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create });
+	//	Create your Phaser game and inject it into the gameContainer div.
+	//	We did it in a window.onload event, but you can do it anywhere (requireJS load, anonymous function, jQuery dom ready, - whatever floats your boat)
+	var game = new Phaser.Game(640, 480, Phaser.AUTO, 'gamecontainer');
+  window.player = {
+    oil: 2,
+    vehicles: [0, 0, 0, 0, 0, 0],
+    level: 0
+  };
 
-        function preload () {
+	//	Add the States your game has.
+	//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
+	game.state.add('Boot', BasicGame.Boot);
+	game.state.add('Preloader', BasicGame.Preloader);
+	game.state.add('Menu', BasicGame.Menu);
+	game.state.add('PreLevel', BasicGame.PreLevel);
+	game.state.add('Level', BasicGame.Level);
+  game.state.add('Success', BasicGame.Success);
+  game.state.add('GameOver', BasicGame.GameOver);
+  game.state.add('Victory', BasicGame.Victory);
 
-            game.load.image('logo', 'phaser.png');
+	//	Now start the Boot state.
+	game.state.start('Boot');
 
-        }
-
-        function create () {
-
-            var logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
-            logo.anchor.setTo(0.5, 0.5);
-
-        }
-
-    };
-
-    </script>
-
-    </body>
+};
+  </script>
+  </body>
 </html>
